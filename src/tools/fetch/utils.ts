@@ -76,9 +76,13 @@ export const MAX_MARKDOWN_LENGTH = 100_000;
 /**
  * Identifying User-Agent so site operators can recognize and rate-limit this
  * client distinctly from browser traffic.
+ *
+ * SEC EDGAR (and several IR sites) hard-403 generic clients — verified:
+ * sec.gov answers 200 only to UAs that carry real identifying contact
+ * information. Keep the project + contact here so filings stay reachable.
  */
 export function getWebFetchUserAgent(): string {
-  return 'Dexter-User (dexter-ts; +https://github.com/)';
+  return 'SoMaCoSF-Dexter/1.0 (research agent; +https://github.com/SoMaCoSF/dexter; research@somacosf.com)';
 }
 
 export function validateURL(url: string): boolean {
